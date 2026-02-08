@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "reachmod",
+  "version": "${version}",
+  "name": "ReachMod",
+  "description": "Customiza a distância de alcance do jogador.",
+  "authors": ["IvanHD"],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/reachmod/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [ "br.com.ivanhd.ReachMod" ],
+    "client": [ "br.com.ivanhd.client.ReachModClient" ],
+    "modmenu": [ "br.com.ivanhd.client.ModMenuIntegration" ]
+  },
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "~1.21",
+    "cloth-config": "*"
+  }
+}
