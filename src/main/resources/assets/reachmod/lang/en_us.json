@@ -1,9 +1,10 @@
 {
-  "title.reachmod.config": "Reach Configuration",
-  "category.reachmod.general": "General Settings",
-  "option.reachmod.enabled": "Mod Enabled",
-  "option.reachmod.entity_reach": "Entity Reach (Attack)",
-  "option.reachmod.block_reach": "Block Reach (Build/Mine)",
-  "key.reachmod.open_config": "Open Reach Menu",
-  "category.reachmod.category": "Reach Mod"
+  "title.reachmod.config": "Reach Settings",
+  "category.reachmod.main": "General",
+  "option.reachmod.entity_reach": "Entity Reach",
+  "option.reachmod.block_reach": "Block Reach",
+  "reachmod.confirm.title": "Security Warning",
+  "reachmod.confirm.message": "Do you want to enable Reach Mod on server %s? Using reach on public servers can result in a BAN.",
+  "reachmod.msg.authorized": "[ReachMod] Custom reach enabled for this server.",
+  "key.reachmod.open_config": "Open Reach Menu"
 }

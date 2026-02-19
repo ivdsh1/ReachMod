@@ -4,7 +4,7 @@
   "version": "${version}",
   "name": "ReachMod",
   "description": "Customiza a distância de alcance do jogador.",
-  "authors": ["IvanHD"],
+  "authors": ["ivan.hd"],
   "contact": {},
   "license": "MIT",
   "icon": "assets/reachmod/icon.png",

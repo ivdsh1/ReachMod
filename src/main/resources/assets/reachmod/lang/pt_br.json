@@ -1,9 +1,12 @@
 {
   "title.reachmod.config": "Configuração de Reach",
-  "category.reachmod.general": "Geral",
-  "option.reachmod.enabled": "Mod Ativado",
-  "option.reachmod.entity_reach": "Alcance de Entidade (Padrão: 3.0)",
-  "option.reachmod.block_reach": "Alcance de Bloco (Padrão: 4.5)",
-  "key.reachmod.open_config": "Abrir Menu de Reach",
-  "category.reachmod.category": "Reach Mod"
+  "category.reachmod.main": "Configurações Gerais",
+  "option.reachmod.entity_reach": "Alcance de Entidade",
+  "option.reachmod.block_reach": "Alcance de Bloco",
+  "option.reachmod.reset_servers": "Limpar permissões de servidores?",
+  "option.reachmod.reset_info": "Ao marcar SIM e salvar, o mod pedirá autorização novamente em todos os servidores.",
+  "reachmod.confirm.title": "Aviso de Segurança",
+  "reachmod.confirm.message": "Você deseja ativar o Reach Mod no servidor %s? O uso de Reach em servidores públicos pode resultar em BANIMENTO.",
+  "reachmod.msg.authorized": "[ReachMod] Alcance customizado ativado para este servidor.",
+  "key.reachmod.open_config": "Menu de Configuração Reach"
 }
