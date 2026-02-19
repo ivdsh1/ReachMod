@@ -1,8 +1,9 @@
 {
   "title.reachmod.config": "Configuração de Reach",
   "category.reachmod.general": "Geral",
-  "option.reachmod.entity_reach": "Alcance de Entidade (Ataque)",
-  "option.reachmod.block_reach": "Alcance de Bloco (Mineração)",
+  "option.reachmod.enabled": "Mod Ativado",
+  "option.reachmod.entity_reach": "Alcance de Entidade (Padrão: 3.0)",
+  "option.reachmod.block_reach": "Alcance de Bloco (Padrão: 4.5)",
   "key.reachmod.open_config": "Abrir Menu de Reach",
   "category.reachmod.category": "Reach Mod"
 }

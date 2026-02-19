@@ -21,19 +21,29 @@ public class ModMenuIntegration implements ModMenuApi {
                 .setTitle(Text.translatable("title.reachmod.config"))
                 .setSavingRunnable(() -> ReachMod.config.save());
 
-        ConfigCategory general = builder.getOrCreateCategory(Text.translatable("category.reachmod.general"));
+        ConfigCategory general = builder.getOrCreateCategory(Text.translatable("category.reachmod.main"));
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
 
-        // Configuração de Reach de Entidade (Item)
-        general.addEntry(entryBuilder.startFloatField(Text.translatable("option.reachmod.entity_reach"), ReachMod.config.entityReach)
-                .setDefaultValue(3.0f)
-                .setSaveConsumer(newValue -> ReachMod.config.entityReach = newValue)
+        // Ativar/Desativar Mod
+        general.addEntry(entryBuilder.startBooleanToggle(Text.translatable("option.reachmod.enabled"), ReachMod.config.isEnabled())
+                .setDefaultValue(true)
+                .setSaveConsumer(newValue -> ReachMod.config.setEnabled(newValue))
                 .build());
 
-        // Configuração de Reach de Bloco
-        general.addEntry(entryBuilder.startFloatField(Text.translatable("option.reachmod.block_reach"), ReachMod.config.blockReach)
+        // Entity Reach com limites (Botão de reset incluso no Cloth Config)
+        general.addEntry(entryBuilder.startFloatField(Text.translatable("option.reachmod.entity_reach"), ReachMod.config.getEntityReach())
+                .setDefaultValue(3.0f)
+                .setMin(ModConfig.MIN_REACH) // Limite Mínimo
+                .setMax(ModConfig.MAX_REACH) // Limite Máximo
+                .setSaveConsumer(newValue -> ReachMod.config.setEntityReach(newValue))
+                .build());
+
+        // Block Reach com limites
+        general.addEntry(entryBuilder.startFloatField(Text.translatable("option.reachmod.block_reach"), ReachMod.config.getBlockReach())
                 .setDefaultValue(4.5f)
-                .setSaveConsumer(newValue -> ReachMod.config.blockReach = newValue)
+                .setMin(ModConfig.MIN_REACH)
+                .setMax(ModConfig.MAX_REACH)
+                .setSaveConsumer(newValue -> ReachMod.config.setBlockReach(newValue))
                 .build());
 
         return builder.build();

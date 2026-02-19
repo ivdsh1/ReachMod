@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ReachMod.client.iml" filepath="$PROJECT_DIR$/.idea/modules/ReachMod.client.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ReachMod.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ReachMod.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ReachMod.test.iml" filepath="$PROJECT_DIR$/.idea/modules/ReachMod.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ReachMod.iml" filepath="$PROJECT_DIR$/.idea/ReachMod.iml" />
     </modules>
   </component>
 </project>

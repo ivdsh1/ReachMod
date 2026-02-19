@@ -1,6 +1,7 @@
 {
   "title.reachmod.config": "Reach Configuration",
   "category.reachmod.general": "General Settings",
+  "option.reachmod.enabled": "Mod Enabled",
   "option.reachmod.entity_reach": "Entity Reach (Attack)",
   "option.reachmod.block_reach": "Block Reach (Build/Mine)",
   "key.reachmod.open_config": "Open Reach Menu",

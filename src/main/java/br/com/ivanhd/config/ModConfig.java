@@ -9,29 +9,30 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+@Getter @Setter
 public class ModConfig {
-    private static final File CONFIG_FILE = new File(FabricLoader.getInstance().getConfigDir().toFile(), "reachmod.json");
+    private static final File FILE = new File(FabricLoader.getInstance().getConfigDir().toFile(), "reachmod.json");
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
-    public float entityReach = 3.0f;
-    public float blockReach = 4.5f;
+    public static final float MIN_REACH = 1.0f;
+    public static final float MAX_REACH = 64.0f;
+
+    private boolean enabled = true;
+    private float entityReach = 3.0f;
+    private float blockReach = 4.5f;
 
     public static ModConfig load() {
-        if (CONFIG_FILE.exists()) {
-            try (FileReader reader = new FileReader(CONFIG_FILE)) {
+        if (FILE.exists()) {
+            try (FileReader reader = new FileReader(FILE)) {
                 return GSON.fromJson(reader, ModConfig.class);
-            } catch (IOException e) {
-                return new ModConfig();
-            }
+            } catch (Exception e) { return new ModConfig(); }
         }
         return new ModConfig();
     }
 
     public void save() {
-        try (FileWriter writer = new FileWriter(CONFIG_FILE)) {
+        try (FileWriter writer = new FileWriter(FILE)) {
             GSON.toJson(this, writer);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        } catch (IOException e) { e.printStackTrace(); }
     }
 }

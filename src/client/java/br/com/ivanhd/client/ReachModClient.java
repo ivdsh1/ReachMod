@@ -26,22 +26,47 @@ public class ReachModClient implements ClientModInitializer {
         ));
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            if (client.player != null) {
-                // Forçamos o alcance no seu cliente
-                var entityAttr = client.player.getAttributeInstance(EntityAttributes.ENTITY_INTERACTION_RANGE);
-                if (entityAttr != null) {
-                    entityAttr.setBaseValue(ReachMod.config.entityReach);
-                }
-
-                var blockAttr = client.player.getAttributeInstance(EntityAttributes.BLOCK_INTERACTION_RANGE);
-                if (blockAttr != null) {
-                    blockAttr.setBaseValue(ReachMod.config.blockReach);
-                }
+            if (client.player != null && ReachMod.config.isEnabled()) {
+                applySafeReach(client);
             }
 
             while (configKey.wasPressed()) {
                 client.setScreen(ModMenuIntegration.createConfigScreen(client.currentScreen));
             }
         });
+    }
+
+    private void applySafeReach(MinecraftClient client) {
+        var entityAttr = client.player.getAttributeInstance(EntityAttributes.PLAYER_ENTITY_INTERACTION_RANGE);
+        var blockAttr = client.player.getAttributeInstance(EntityAttributes.PLAYER_BLOCK_INTERACTION_RANGE);
+
+        if (entityAttr != null) {
+            double current = entityAttr.getBaseValue();
+            // Se o reach for o padrão (3.0) ou o que o mod colocou, ele aplica.
+            // Se for 64.0 (servidor), ele NÃO mexe.
+            if (current == 3.0 || current == ReachMod.config.getEntityReach()) {
+                entityAttr.setBaseValue(ReachMod.config.getEntityReach());
+            }
+        }
+
+        if (blockAttr != null) {
+            double current = blockAttr.getBaseValue();
+            if (current == 4.5 || current == ReachMod.config.getBlockReach()) {
+                blockAttr.setBaseValue(ReachMod.config.getBlockReach());
+            }
+        }
+    }
+
+    private void resetToVanilla(MinecraftClient client) {
+        var entityAttr = client.player.getAttributeInstance(EntityAttributes.PLAYER_ENTITY_INTERACTION_RANGE);
+        var blockAttr = client.player.getAttributeInstance(EntityAttributes.PLAYER_BLOCK_INTERACTION_RANGE);
+
+        // Se desligar o mod, volta para o padrão apenas se o mod estivesse controlando
+        if (entityAttr != null && entityAttr.getBaseValue() == ReachMod.config.getEntityReach()) {
+            entityAttr.setBaseValue(3.0);
+        }
+        if (blockAttr != null && blockAttr.getBaseValue() == ReachMod.config.getBlockReach()) {
+            blockAttr.setBaseValue(4.5);
+        }
     }
 }
